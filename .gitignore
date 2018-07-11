@@ -1,3 +1,4 @@
 target/
+src/main/resources/log4j.out.xml
 .classpath
 .project

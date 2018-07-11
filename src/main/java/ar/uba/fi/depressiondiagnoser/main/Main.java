@@ -20,7 +20,7 @@ public class Main {
 		kbase.addKnowledgePackages(kbuilder.getKnowledgePackages());
 		StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
 		
-		Paciente paciente = Parser.parse("development.json");
+		Paciente paciente = Parser.parse("src/main/resources/paciente.json");
 		ksession.insert(paciente);
 		ksession.fireAllRules();
 		System.out.println("Diagnostico del Paciente: "+paciente.getDiagnostico());

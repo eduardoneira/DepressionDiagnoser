@@ -34,11 +34,11 @@ public class Medicacion {
 		this.influencia = influencia;
 	}
 	
-	public Integer getRecetado() {
+	public Integer getRecetadoPor() {
 		return recetadoPor;
 	}
 	
-	public void setRecetado(Integer recetado) {
+	public void setRecetadoPor(Integer recetado) {
 		this.recetadoPor = recetado;
 	}
 	

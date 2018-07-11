@@ -1,1 +1,36 @@
 package ar.uba.fi.depressiondiagnoser.main
+
+rule "Psicologo" salience 1
+when
+	$paciente : Paciente( (estadoDeAnimo.getTristeza() > 2 || estadoDeAnimo.getAnsiedad() > 2 || estadoDeAnimo.getIrritabilidad() > 2) && (duelo.getRelevancia() && duelo.getDuracion() < 4 && duelo.getDuracion() > 1) && (impedimentos.getVidaCotidiana() > 2 || impedimentos.getSociales() > 2 || impedimentos.getLaborales() > 2))
+then
+	$paciente.setDiagnosticoPriorizado(Diagnosticos.PSICOLOGO);
+end
+
+rule "Psiquiatra" salience 2
+when
+    $paciente : Paciente( (estadoDeAnimo.getTristeza() > 1 || estadoDeAnimo.getAnsiedad() > 1 || estadoDeAnimo.getHiperactividad() > 1) && ((medicacion.getInfluencia() > 2 && medicacion.getDuracion() == 2) || (adiccion.getGrado() > 2) || (enfermedad.getInfluencia() && enfermedad.getDiagnosticacion() > 1 && enfermedad.getDiagnosticacion() < 4)))
+then
+    $paciente.setDiagnosticoPriorizado(Diagnosticos.PSIQUIATRA);
+end
+
+rule "Psicologo y Psiquiatra" salience 3
+when
+    $paciente : Paciente( (estadoDeAnimo.getTristeza() > 3 || estadoDeAnimo.getAnsiedad() > 3 || estadoDeAnimo.getHiperactividad() > 3 || estadoDeAnimo.getIrritabilidad() > 3) && (desesperanza.getVisionDelFuturo() == 2) && (duelo.getDuracion() == 4 || adiccion.getGrado() > 1 || estadoDeAnimo.getVariacion() == 3 || medicacion.getInfluencia() > 2))
+then
+    $paciente.setDiagnosticoPriorizado(Diagnosticos.PSICOLOGOYPSIQUIATRA);
+end
+
+rule "Guardia de Salud Mental" salience 4
+when
+    $paciente : Paciente( (desesperanza.getVisionDelFuturo() > 1) && (impedimentos.getVidaCotidiana() > 2 || impedimentos.getSociales() > 2 || impedimentos.getLaborales() > 2) && ((estadoDeAnimo.getAnsiedad() > 2 || estadoDeAnimo.getHiperactividad() > 2) || (medicacion.getInfluencia() > 2 && medicacion.getDuracion() == 2) || (adiccion.getGrado() > 2) ))
+then
+    $paciente.setDiagnosticoPriorizado(Diagnosticos.GUARDIADESALUDMENTAL);
+end
+
+rule "Internacion" salience 5
+when
+	$paciente : Paciente( (desesperanza.getIdeacionSuicida() > 1) && (impedimentos.getVidaCotidiana() > 3 || impedimentos.getSociales() > 3 || impedimentos.getLaborales() > 3) && ((desesperanza.getVisionDelFuturo() > 1) || (medicacion.getInfluencia() > 2 && medicacion.getRecetadoPor() == 2) || (adiccion.getGrado() > 2 && adiccion.getRehabilitacion())))
+then
+	$paciente.setDiagnosticoPriorizado(Diagnosticos.INTERNACION);
+end

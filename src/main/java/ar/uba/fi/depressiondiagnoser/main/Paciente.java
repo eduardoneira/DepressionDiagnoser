@@ -30,6 +30,10 @@ public class Paciente {
 		return diagnostico;
 	}
 
+	public void setDiagnosticoPriorizado(String diagnostico) {
+		this.diagnostico = Diagnosticos.greaterPriority(this.diagnostico, diagnostico);
+	}
+	
 	public void setDiagnostico(String diagnostico) {
 		this.diagnostico = diagnostico;
 	}

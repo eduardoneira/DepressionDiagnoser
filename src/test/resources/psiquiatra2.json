@@ -4,8 +4,8 @@
         "VisionDelFuturo": "1"
     },
     "Duelo": {
-        "Duracion": "3",
-        "Relevancia": "true"
+        "Duracion": "1",
+        "Relevancia": "false"
     },
     "Medicacion": {
         "Influencia" : "3",

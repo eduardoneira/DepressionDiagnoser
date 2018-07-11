@@ -31,6 +31,7 @@ public class Paciente {
 	}
 
 	public void setDiagnosticoPriorizado(String diagnostico) {
+		System.out.println(diagnostico);
 		this.diagnostico = Diagnosticos.greaterPriority(this.diagnostico, diagnostico);
 	}
 	

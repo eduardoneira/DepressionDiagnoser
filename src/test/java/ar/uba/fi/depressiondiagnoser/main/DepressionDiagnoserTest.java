@@ -41,10 +41,7 @@ public class DepressionDiagnoserTest {
 	@Test
 	public void testPsicologo() {
 		Paciente paciente1 = getPaciente("psicologo1.json");
-		paciente1.setDiagnostico(Diagnosticos.SINDIAGNOSTICO);
-		
 		Paciente paciente2 = getPaciente("psicologo2.json");
-		paciente2.setDiagnostico(Diagnosticos.SINDIAGNOSTICO);
 		
 		this.ksession.insert(paciente1);
 		this.ksession.insert(paciente2);
@@ -58,13 +55,8 @@ public class DepressionDiagnoserTest {
 	@Test
 	public void testPsiquiatra() {
 		Paciente paciente1 = getPaciente("psiquiatra1.json");
-		paciente1.setDiagnostico(Diagnosticos.SINDIAGNOSTICO);
-		
 		Paciente paciente2 = getPaciente("psiquiatra2.json");
-		paciente2.setDiagnostico(Diagnosticos.SINDIAGNOSTICO);
-		
 		Paciente paciente3 = getPaciente("psiquiatra3.json");
-		paciente2.setDiagnostico(Diagnosticos.SINDIAGNOSTICO);
 		
 		this.ksession.insert(paciente1);
 		this.ksession.insert(paciente2);
@@ -77,6 +69,60 @@ public class DepressionDiagnoserTest {
 		assertEquals(Diagnosticos.PSIQUIATRA, paciente3.getDiagnostico());
 	}
 	
+	@Test
+	public void testPsicologoYPsiquiatra() {
+		Paciente paciente1 = getPaciente("psicologoypsiquiatra1.json");
+		Paciente paciente2 = getPaciente("psicologoypsiquiatra2.json");
+		Paciente paciente3 = getPaciente("psicologoypsiquiatra3.json");
+		Paciente paciente4 = getPaciente("psicologoypsiquiatra4.json");
+		
+		this.ksession.insert(paciente1);
+		this.ksession.insert(paciente2);
+		this.ksession.insert(paciente3);
+		this.ksession.insert(paciente4);
+		
+		this.ksession.fireAllRules();
+		
+		assertEquals(Diagnosticos.PSICOLOGOYPSIQUIATRA, paciente1.getDiagnostico());
+		assertEquals(Diagnosticos.PSICOLOGOYPSIQUIATRA, paciente2.getDiagnostico());
+		assertEquals(Diagnosticos.PSICOLOGOYPSIQUIATRA, paciente3.getDiagnostico());
+		assertEquals(Diagnosticos.PSICOLOGOYPSIQUIATRA, paciente4.getDiagnostico());
+	}
+	
+	@Test
+	public void testGuardiaDeSaludMental() {
+		Paciente paciente1 = getPaciente("guardiadesaludmental1.json");
+		Paciente paciente2 = getPaciente("guardiadesaludmental2.json");
+		Paciente paciente3 = getPaciente("guardiadesaludmental3.json");
+
+		this.ksession.insert(paciente1);
+		this.ksession.insert(paciente2);
+		this.ksession.insert(paciente3);
+		
+		this.ksession.fireAllRules();
+		
+		assertEquals(Diagnosticos.GUARDIADESALUDMENTAL, paciente1.getDiagnostico());
+		assertEquals(Diagnosticos.GUARDIADESALUDMENTAL, paciente2.getDiagnostico());
+		assertEquals(Diagnosticos.GUARDIADESALUDMENTAL, paciente3.getDiagnostico());
+	}
+	
+	@Test
+	public void testInternacion() {
+		Paciente paciente1 = getPaciente("internacion1.json");
+		Paciente paciente2 = getPaciente("internacion2.json");
+		Paciente paciente3 = getPaciente("internacion3.json");
+
+		this.ksession.insert(paciente1);
+		this.ksession.insert(paciente2);
+		this.ksession.insert(paciente3);
+		
+		this.ksession.fireAllRules();
+		
+		assertEquals(Diagnosticos.INTERNACION, paciente1.getDiagnostico());
+		assertEquals(Diagnosticos.INTERNACION, paciente2.getDiagnostico());
+		assertEquals(Diagnosticos.INTERNACION, paciente3.getDiagnostico());
+	}
+
 	private Paciente getPaciente(String filename) {
 		return Parser.parse("src/test/resources/"+filename);
 	}

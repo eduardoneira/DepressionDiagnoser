@@ -1,7 +1,7 @@
 { 
     "Desesperanza": {
         "IdeacionSuicida": "1",
-        "VisionDelFuturo": "1"
+        "VisionDelFuturo": "3"
     },
     "Duelo": {
         "Duracion": "1",
@@ -17,19 +17,19 @@
         "Diagnosticacion": "1"
     },
     "Adiccion": {
-        "Grado": "4",
+        "Grado": "3",
         "Rehabilitacion": "true"
     },
     "EstadoDeAnimo": {
-        "Tristeza": "1",
-        "Ansiedad": "4",
-        "Hiperactividad": "2",
+        "Tristeza": "2",
+        "Ansiedad": "2",
+        "Hiperactividad": "1",
         "Irritabilidad": "2",
         "Variacion": "1"
     },
     "Impedimentos": {
         "VidaCotidiana": "3",
-        "Sociales": "1",
+        "Sociales": "5",
         "Laborales": "1"
     }
-}   
+}  

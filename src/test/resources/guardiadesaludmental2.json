@@ -1,35 +1,35 @@
 { 
     "Desesperanza": {
         "IdeacionSuicida": "1",
-        "VisionDelFuturo": "1"
+        "VisionDelFuturo": "2"
     },
     "Duelo": {
         "Duracion": "1",
         "Relevancia": "false"
     },
     "Medicacion": {
-        "Influencia" : "1",
-        "RecetadoPor": "1",
-        "Duracion": "1"
+        "Influencia" : "3",
+        "RecetadoPor": "4",
+        "Duracion": "2"
     },
     "Enfermedad": {
         "Influencia": "false",
         "Diagnosticacion": "1"
     },
     "Adiccion": {
-        "Grado": "4",
-        "Rehabilitacion": "true"
+        "Grado": "1",
+        "Rehabilitacion": "false"
     },
     "EstadoDeAnimo": {
-        "Tristeza": "1",
-        "Ansiedad": "4",
-        "Hiperactividad": "2",
+        "Tristeza": "2",
+        "Ansiedad": "2",
+        "Hiperactividad": "1",
         "Irritabilidad": "2",
         "Variacion": "1"
     },
     "Impedimentos": {
-        "VidaCotidiana": "3",
-        "Sociales": "1",
-        "Laborales": "1"
+        "VidaCotidiana": "4",
+        "Sociales": "3",
+        "Laborales": "2"
     }
-}   
+}  

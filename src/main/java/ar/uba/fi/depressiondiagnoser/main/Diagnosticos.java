@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Diagnosticos {
 	
-	public static final String SINDIAGNOSTICO = "Sin diagnostico";
+	public static final String SINDEPRESION	= "Sin depresion";
 	public static final String PSICOLOGO = "Psicologo";
 	public static final String PSIQUIATRA = "Psiquiatra";
 	public static final String PSICOLOGOYPSIQUIATRA ="Psicologo y Psiquiatra";
@@ -13,7 +13,7 @@ public class Diagnosticos {
 	public static final String INTERNACION = "Internacion";
 	
 	private static final Map<String,Integer> diagnosticosPriorizados = new HashMap<String,Integer>(){{
-		put(SINDIAGNOSTICO,0);
+		put(SINDEPRESION,0);
 		put(PSICOLOGO,1);
 		put(PSIQUIATRA,2);
 		put(PSICOLOGOYPSIQUIATRA,3);
